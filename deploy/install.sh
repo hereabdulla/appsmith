@@ -13,7 +13,7 @@ is_mac() {
 # The script should error out in case they aren't available
 check_ports_occupied() {
     local port_check_output
-    local ports_pattern="80|443"
+    local ports_pattern="8080|443"
 
     if is_mac; then
         port_check_output="$(netstat -anp tcp | awk '$6 == "LISTEN" && $4 ~ /^.*\.('"$ports_pattern"')$/')"
